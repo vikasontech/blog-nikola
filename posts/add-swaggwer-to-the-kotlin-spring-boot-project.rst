@@ -18,6 +18,11 @@ In this short article we shall see how to configure swagger with spring webflux 
 
 
 Create a project on the spring boot initializer page with dpendency as 'webflux' and language as 'java'
+
+.. thumbnail:: /images/20200116/spring-initializer.png
+   :alt: spring initializer
+
+
 In order to work swagger with kotlin you need to add the following repositories in you pom.xml file.
 {{%gist a5dd22e084c90f46189bd5fdff5b03c6  %}}
   
@@ -34,11 +39,6 @@ Create a class called 'SwaggerCofig' this class is reponsible to configure Docke
 at line no# 9 we set the path of the rest controllers, swagger will scan this package to pick the endpoints.
 
 
-**Add Resource configuration**
-
-
-Configure the resource cofniguration for swagger ui as below 
-{{% gist 20b01be5adab3b901f1d9972e23e5b24 %}}
 
 **Create a sample response object**
 
@@ -61,14 +61,14 @@ mvn spring-boot:run
 go to the url http://localhost:8080/swagger-ui.html
 
 the swagger page should show like this
-todo: add screen dump
+
+.. thumbnail:: /images/20200116/swagger-ui.png
+   :alt: swagger ui example
 
 
 **Repository**
 
 
-the full source code is available here 
-???
-
+The full source code is available here `GitHub <https://github.com/vikasontech/kotlinWithSwagger>`_
 
 
