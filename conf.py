@@ -25,7 +25,7 @@ SITE_URL = "http://vikasontech.github.io/web-site/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://vikasontech.github.io/web-site/"
 BLOG_EMAIL = "vikason@gmail.com"
-BLOG_DESCRIPTION = "Sample java nots"  # (translatable)
+BLOG_DESCRIPTION = "Sample java notes"  # (translatable)
 
 # Nikola is multilingual!
 #
