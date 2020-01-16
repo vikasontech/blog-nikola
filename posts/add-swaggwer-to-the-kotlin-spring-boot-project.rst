@@ -1,4 +1,4 @@
-.. title: Add swaggwer to the kotlin spring boot project
+.. title: Add swaggwer to the kotlin spring 
 .. slug: add-swaggwer-to-the-kotlin-spring-boot-project
 .. date: 2020-01-16 16:22:54 UTC+07:00
 .. tags: swagger, kotlin, spring-boot
@@ -8,21 +8,11 @@
 .. type: text
 
 
-This is a typical paragraph.  An indented literal block follows.
 
-::
+**Introduction**
 
-    for a in [5,4,3,2,1]:   # this is program code, shown as-is
-        print a
-    print "it's..."
-    # a literal block continues until the indentation ends
+In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.
 
-This text has returned to the indentation of the first paragraph,
-is outside of the literal block, and is therefore treated as an
-ordinary paragraph.
-
-
-``Introduction`` 
 
 **Dependencies**
 
@@ -35,7 +25,7 @@ Since the swagger dipendency is avalialb in another repository you need to add t
 {{%gist b53e428ae9ddfe5faeefe9882d36c89a %}}
 
 
-``Setup swagger with kotlin``
+**Setup swagger with kotlin**
 
 
 Create a class called 'SwaggerCofig' this class is reponsible to configure Docket for our application as below 
@@ -44,27 +34,41 @@ Create a class called 'SwaggerCofig' this class is reponsible to configure Docke
 at line no# 9 we set the path of the rest controllers, swagger will scan this package to pick the endpoints.
 
 
+**Add Resource configuration**
 
-``Add Resource configuration``
+
 Configure the resource cofniguration for swagger ui as below 
 {{% gist 20b01be5adab3b901f1d9972e23e5b24 %}}
 
-Create rest controller
+**Create a sample response object**
+
+Create a simple `LoanDetailFacade` that will contains the details about the loan.
+{{% gist 538fe51780ebe36103dd5f395b5b561d %}}
+
+
+**Create rest controller**
+
+
 It's same as we do in spring web create some endpoints as below 
 {{% gist 9583ef4551ee379bc8f7a8f1e1fc2cb4 %}}
 
-Test Application
-to run the application use below commn
+**Test Application**
+
+
+To run the application use below commn
 mvn spring-boot:run 
 
-go to the url `http://localhost:8080/swagger-ui.html`
+go to the url http://localhost:8080/swagger-ui.html
 
 the swagger page should show like this
 todo: add screen dump
 
 
-Repository
+**Repository**
+
+
 the full source code is available here 
+???
 
 
 
