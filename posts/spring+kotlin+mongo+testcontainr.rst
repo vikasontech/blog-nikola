@@ -21,7 +21,11 @@ Go to the `spring initializer <http://start.spring.io/>`_ and create poject with
 
 Here we shall create an Loan details application, where we will save loan detail.
 
+
 **Create basic struction of the application**
+
+Configure mongo db configure in appliation.yml file
+{{% gist https://gist.github.com/501978b2baa46062c4faf7b2f8514694 %}}
  
 Create a `document` class to save in mongo
 {{% gist 538fe51780ebe36103dd5f395b5b561d %}}
