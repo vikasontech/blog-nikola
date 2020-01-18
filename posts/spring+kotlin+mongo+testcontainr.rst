@@ -13,20 +13,60 @@
 
 In this project we shall see how to use `testcontainer <https://www.testcontainers.org/>`_ to test the repository created in `mongodb <https://www.mongodb.com/>`_. As per their document Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
 
+
+**Requirements**
+
+
+1. Docker
+
+
+
 **Create sample project**
 
 
-Go to the `spring initializer <http://start.spring.io/>`_ and create poject with language as kotlin and dependencies required are `webflux` & `reactive mongo db`
+Go to the `spring initializer <http://start.spring.io/>`_ and create project with language as kotlin and dependencies required are `webflux` & `reactive mongo db`
 
 
-Here we shall create an Loan details application, where we will save loan detail.
+Here we shall create a loan details application, where we will save loan details.
 
 
-**Create basic struction of the application**
+**Dependency for testcontainer**
 
-Configure mongo db configure in appliation.yml file
-{{% gist https://gist.github.com/501978b2baa46062c4faf7b2f8514694 %}}
- 
+
+We need following depencies to add testconainer in the appliation
+{{% gist https://gist.github.com/9870bb368b01f5a7ae07148efd2276f8 %}}
+
+
+**Container Configuration**
+
+
+Create docker compose file for the test container we shall use the same docker-compose.yml file as we are using for the application, except we shall change the port for the test docker container.
+it should look like this-
+
+{{% gist https://gist.github.com/3d2b48ee2c50a390c36a9d57cedb5386 %}}
+
+Note: here we are mapping docker container port at ``1234`` some random port it can be any number that are available.
+
+
+The file path should be ``src/test/resources/docker-compose-test.yml``
+
+1. Create a container class that extends docker compose container class be used as mongo container
+{{% gist https://gist.github.com/f4bc3ac99aa38cdfe130ff572c55f478 %}}
+
+The code is very simple and self explanatory, at ``line:2`` we create a ``DockerComposeContainer`` of type `SELF` ``MongoContainer`` and provide path of test docker compose file.
+
+
+We created it as a singleton repository and use ``@PostConstruct`` to start the container once the dependency injection is done.
+
+
+That's all we need to start with testconatainer.
+
+
+
+**Create basic structure of the application**
+
+
+
 Create a `document` class to save in mongo
 {{% gist 538fe51780ebe36103dd5f395b5b561d %}}
 
@@ -39,26 +79,6 @@ Create an `service` class to access the loan details.
 {{% gist https://gist.github.com/e0970e10dfc16f24195a8f932537a0dc %}}
 
 
-**Dependency for testcontainer**
-
-
-We need following depencies to add testconainer in the appliation
-{{% gist https://gist.github.com/9870bb368b01f5a7ae07148efd2276f8 %}}
-That's all we need to start with testconatainer.
-
-
-**Container Configuration**
-
-
-1. Create an container class that extends Generic ccontainer to be used as mongo container
-{{% gist https://gist.github.com/f4bc3ac99aa38cdfe130ff572c55f478 %}}
-
-
-2. Create configuration for initialize mongo container as below 
-{{% gist https://gist.github.com/6c1ace895b9b7e1cdf18c3370192336f %}}
-
-
-The code is very simple and self explenetry. On ``line#3`` we specify the image that we want to use for testing. I am here using ``mongo:4.2.0-rc2-bionic`` you can use same vertion as you are using onproduction. on ``line#5-6`` create mongo container and starting it. on ``line#9-11`` specify the test property values for the mongo database.
 
 
 **Create first test case**
@@ -67,12 +87,23 @@ The code is very simple and self explenetry. On ``line#3`` we specify the image 
 Let's create our first test case as below 
 {{% gist https://gist.github.com/a9bd4b673a792f94ca426d1ad988d981 %}}
 
-Here we test the data can be saved in the mongo db.To use mongo container we spcify the initializer class using the annotation ``@ContextConfiguratin`` at ``line#3``.
+
+
+The test case is preety normal and same we write. There is nothing special we need to do for testcontainers.
+
+
+
+**Run Test**
+
+
+`Note: please ensure that the docker is running on your machine`
+
 
 
 **Repository**
 
 
-TODO: create repository and link here
+Create repository and link `here <https://github.com/vikasontech/KotlinWebFluxMongoTestContainer.git/>`_
+
 
 
