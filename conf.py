@@ -20,12 +20,13 @@ BLOG_AUTHOR = "Vikas Verma"  # (translatable)
 BLOG_TITLE = "Vikas Java Blogs"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "http://vikasontech.github.io/web-site/"
+SITE_URL = "https://vikasontech.github.io/web/"
+
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://vikasontech.github.io/web-site/"
 BLOG_EMAIL = "vikason@gmail.com"
-BLOG_DESCRIPTION = "Sample java nots"  # (translatable)
+BLOG_DESCRIPTION = "Sample java notes"  # (translatable)
 
 # Nikola is multilingual!
 #
