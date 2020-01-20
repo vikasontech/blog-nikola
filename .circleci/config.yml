@@ -18,8 +18,10 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - upgrade pip
-          pip install --upgrade pip
+      - upgrade pip:
+          name: upgrading pip installation
+          command: |
+            pip install --upgrade pip
 
       - checkout
 
