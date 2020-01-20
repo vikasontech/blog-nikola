@@ -53,7 +53,7 @@ jobs:
             nikola build
             git clone https://github.com/vikasontech/web.git
             cd web
-            git chekout -b cicd
+            git checkout -b cicd
             cp -rf ../output ./
             git commit "deployied by cicd"
             git push 
