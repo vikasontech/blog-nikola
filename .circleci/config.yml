@@ -9,8 +9,7 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       #- image: circleci/python:3.6.1
-      - image: python:alpine3.11
-
+      - image: dragas/nikola:alpine
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -28,14 +27,14 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
+              #    - run:
+              # name: install dependencies
+              # command: |
+              #  python3 -m venv venv
+              #  . venv/bin/activate
             #pip install --upgrade pip
             #pip3 install --upgrade setuptools
-            pip3 install -r requirements.txt
+            #  pip3 install -r requirements.txt
 
       - save_cache:
           paths:
@@ -50,6 +49,6 @@ jobs:
       - run:
           name: create build
           command: |
-            . venv/bin/activate
-            #nikola build
+            #. venv/bin/activate
+            nikola build
 
