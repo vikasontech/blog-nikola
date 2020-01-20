@@ -56,9 +56,12 @@ jobs:
             git config --global user.name "vikas cicd"
             cd web
             git checkout -b cicd
-            cp -rf ../output ./
+            cp -rf ../output/ ./
+            git add *
             git commit -am  "deployied by cicd"
             git push 
+            echo "success"
+
 
             
 
