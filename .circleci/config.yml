@@ -33,8 +33,8 @@ jobs:
             #. venv/bin/activate
             nikola build
             git clone https://github.com/vikasontech/web.git
-            git config --global user.email "vikas.on@gmail.com"
-            git config --global user.name "vikas cicd"
+            git config --global user.email "vikas.on.tech@gmail.com"
+            git config --global user.name "vikasontech"
             cd web
             git checkout -b cicd
             cp -rf ../output/ ./
