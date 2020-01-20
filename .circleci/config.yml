@@ -55,7 +55,7 @@ jobs:
             cd web
             git checkout -b cicd
             cp -rf ../output ./
-            git commit "deployied by cicd"
+            git commit -am  "deployied by cicd"
             git push 
 
             
