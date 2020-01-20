@@ -59,7 +59,7 @@ jobs:
             cp -rf ../output/ ./
             git add *
             git commit -am  "deployied by cicd"
-            git push 
+            git push --set-upstream origin cicd
             echo "success"
 
 
