@@ -50,5 +50,5 @@ jobs:
           name: create build
           command: |
             . venv/bin/activate
-            nikola build
+            #nikola build
 
