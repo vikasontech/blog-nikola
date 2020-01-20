@@ -21,7 +21,7 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-Vs
+      #Vs
       # run tests!
       # this example uses Django's built-in test-runner
       # other common Python testing frameworks include pytest and nose
