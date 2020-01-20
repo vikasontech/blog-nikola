@@ -4,6 +4,11 @@
 #
 version: 2
 jobs:
+ deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ec:f4:01:25:b9:2e:5c:c6:f2:99:51:58:2f:34:61:4c"  
   build:
     docker:
       # specify the version you desire here
@@ -32,6 +37,7 @@ jobs:
           command: |
             #. venv/bin/activate
             nikola build
+        
             git clone https://github.com/vikasontech/web.git
             git config --global user.email "vikas.on.tech@gmail.com"
             git config --global user.name "vikasontech"
