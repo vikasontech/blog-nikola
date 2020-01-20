@@ -18,6 +18,9 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - upgrade pip
+          pip install --upgrade pip
+
       - checkout
 
       # Download and cache dependencies
@@ -50,6 +53,3 @@ jobs:
             . venv/bin/activate
             nikola build
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
